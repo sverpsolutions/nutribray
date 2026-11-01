@@ -1,6 +1,6 @@
 # Telegram Business Assistant
 
-Read-only live reports on Telegram for linked GEOM365 users. Settings → **Telegram Assistant** (administrators).
+Read-only live reports on Telegram for linked Nutribay users. Settings → **Telegram Assistant** (administrators).
 
 ## What the codebase uses (inspected, not assumed)
 
@@ -22,7 +22,7 @@ sales. They now exclude them, the same rule shift and day close already used.
 ## Set up
 
 1. Create a bot with **@BotFather**, copy its token.
-2. On the server put `TELEGRAM_BOT_TOKEN=...` in `/opt/geom/deploy/.env` and run `docker compose up -d api`.
+2. On the server put `TELEGRAM_BOT_TOKEN=...` in `/opt/nutribay/deploy/.env` and run `docker compose up -d api`.
 3. Settings → Telegram Assistant → **Verify connection** → **Register webhook** → tick **Enabled**.
 4. Accounts → **Link a user** → choose the software user (and whether financial reports are allowed) → give the user the
    one-time link (15 minutes, single use). The user opens it in Telegram (or sends `/start CODE` to the bot).

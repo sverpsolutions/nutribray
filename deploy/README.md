@@ -1,44 +1,39 @@
-# Deploy GEOM Retail to the Hostinger VPS
+# Deploy Nutribay Manufacturing ERP
 
-Server: `srv2064696.hstgr.cloud` · `72.60.236.218` (Ubuntu + Docker)
-Stack: `db` PostgreSQL 16 (private) · `api` FastAPI · `web` Caddy (frontend + HTTPS + proxy `/api`, `/uploads`)
+Stack: `db` PostgreSQL 16 (private) · `api` FastAPI · `web` Caddy (frontend + proxy `/api`, `/uploads`).
+Standalone project (compose name `nutribay`, database `nutribay_erp`, user `nutribay`) — shares nothing with any other app.
 
-## 1. One-time server setup
+## 1. Server setup
 ```bash
-ssh root@72.60.236.218
-apt update && apt -y upgrade
 docker --version || curl -fsSL https://get.docker.com | sh
-ufw allow OpenSSH && ufw allow 80 && ufw allow 443 && ufw --force enable
-git clone https://github.com/sverpsolutions/geom365.git /opt/geom
-cd /opt/geom/deploy && cp .env.example .env && nano .env   # set DB_PASSWORD, SECRET_KEY, DOMAIN
+git clone https://github.com/sverpsolutions/nutribray.git /opt/nutribay
+cd /opt/nutribay/deploy && cp .env.example .env && nano .env   # DOMAIN, DB_PASSWORD, SECRET_KEY
 ```
-Generate secrets: `openssl rand -hex 32`
+Secrets: `openssl rand -hex 32`. Point the domain's A record to the server IP.
 
-## 2. DNS
-Add an **A record** `geom365` → `72.60.236.218` for `sverpsolutions.com`. Until it resolves, use `SITE_ADDRESS=:80` and open `http://72.60.236.218`.
-
-## 3. Start
+## 2. Start
 ```bash
-cd /opt/geom/deploy
-docker compose up -d --build
+cd /opt/nutribay/deploy && docker compose up -d --build
 docker compose ps && docker compose logs -f api
 ```
 
-## 4. Load the data
+## 3. Import the database backup
+Backups are NOT in git. Copy `nutribay_erp.dump` (from `deploy/backups/` on the PC) to the server's `deploy/backups/`:
 ```bash
-# from your PC: copy the dump
-scp modernbazaar.dump root@72.60.236.218:/opt/geom/deploy/backups/
-# on the server
-docker compose exec db pg_restore -U geom -d modernbazaar --no-owner --no-privileges --clean --if-exists /backups/modernbazaar.dump
+scp nutribay_erp.dump root@SERVER:/opt/nutribay/deploy/backups/
+docker compose exec db pg_restore -U nutribay -d nutribay_erp --no-owner --no-privileges --clean --if-exists /backups/nutribay_erp.dump
 docker compose restart api
 ```
+Plain-SQL alternative (`nutribay_erp.sql`): `docker compose exec -T db psql -U nutribay -d nutribay_erp < backups/nutribay_erp.sql`
 
-## 5. Update to a new version
+Without Docker (own PostgreSQL): `createdb nutribay_erp`, then `pg_restore -d nutribay_erp --no-owner nutribay_erp.dump` (or `psql -d nutribay_erp -f nutribay_erp.sql`), and set `database_url` in `backend/.env`.
+
+## 4. Update
 ```bash
-cd /opt/geom && git pull && cd deploy && docker compose up -d --build
+cd /opt/nutribay && git pull && cd deploy && docker compose up -d --build
 ```
 
-## 6. Daily backup (cron on the server)
+## 5. Daily backup (cron)
 ```bash
-0 2 * * * cd /opt/geom/deploy && docker compose exec -T db pg_dump -U geom -Fc modernbazaar > backups/geom_$(date +\%F).dump && find backups -name 'geom_*.dump' -mtime +14 -delete
+0 2 * * * cd /opt/nutribay/deploy && docker compose exec -T db pg_dump -U nutribay -Fc nutribay_erp > backups/nutribay_$(date +\%F).dump && find backups -name 'nutribay_*.dump' -mtime +14 -delete
 ```

@@ -1,7 +1,7 @@
 // Full-screen "desktop app" mode. Browsers allow full screen only from a click, so it is entered on the Login
 // click, and after a page reload (which always leaves full screen) on the next click anywhere. Pressing Esc or the
 // header button turns it off and that choice is remembered until the next login.
-const KEY = 'geom_fullscreen'
+const KEY = 'nutribay_fullscreen'
 const setPref = (on: boolean) => { try { localStorage.setItem(KEY, on ? '1' : '0') } catch { /* storage blocked */ } }
 const getPref = () => { try { return localStorage.getItem(KEY) === '1' } catch { return false } }
 

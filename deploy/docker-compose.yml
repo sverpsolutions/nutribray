@@ -1,17 +1,18 @@
-# GEOM Retail on one VPS:  docker compose up -d --build   (run from the repo root's deploy/ folder)
+# Nutribay Manufacturing ERP on one VPS:  docker compose up -d --build   (run from the repo root's deploy/ folder)
+name: nutribay
 services:
   db:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_DB: modernbazaar
-      POSTGRES_USER: geom
+      POSTGRES_DB: nutribay_erp
+      POSTGRES_USER: nutribay
       POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in deploy/.env}
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./backups:/backups
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U geom -d modernbazaar"]
+      test: ["CMD-SHELL", "pg_isready -U nutribay -d nutribay_erp"]
       interval: 5s
       retries: 20
     # no "ports:" -> the database is not reachable from the internet
@@ -23,7 +24,7 @@ services:
       db:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql+asyncpg://geom:${DB_PASSWORD}@db:5432/modernbazaar
+      DATABASE_URL: postgresql+asyncpg://nutribay:${DB_PASSWORD}@db:5432/nutribay_erp
       SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in deploy/.env}
       ALLOWED_ORIGINS: https://${DOMAIN}
       DEBUG: "false"
@@ -50,21 +51,21 @@ services:
       SITE_ADDRESS: ":80"   # plain HTTP inside; the server's Traefik does HTTPS
     labels:
       - traefik.enable=true
-      - traefik.http.services.geom.loadbalancer.server.port=80
+      - traefik.http.services.nutribay.loadbalancer.server.port=80
       # live domain, Let's Encrypt certificate
-      - traefik.http.routers.geom.rule=Host(`${DOMAIN}`)
-      - traefik.http.routers.geom.entrypoints=websecure
-      - traefik.http.routers.geom.tls.certresolver=letsencrypt
+      - traefik.http.routers.nutribay.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.nutribay.entrypoints=websecure
+      - traefik.http.routers.nutribay.tls.certresolver=letsencrypt
       # login brute-force protection: max 10 attempts / minute per client IP
-      - traefik.http.middlewares.geom-login-rl.ratelimit.average=10
-      - traefik.http.middlewares.geom-login-rl.ratelimit.period=1m
-      - traefik.http.middlewares.geom-login-rl.ratelimit.burst=10
-      - traefik.http.routers.geom-login.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/auth/login`)
-      - traefik.http.routers.geom-login.entrypoints=websecure
-      - traefik.http.routers.geom-login.tls.certresolver=letsencrypt
-      - traefik.http.routers.geom-login.middlewares=geom-login-rl
-      - traefik.http.routers.geom-login.service=geom
-      - traefik.http.routers.geom-login.priority=100
+      - traefik.http.middlewares.nutribay-login-rl.ratelimit.average=10
+      - traefik.http.middlewares.nutribay-login-rl.ratelimit.period=1m
+      - traefik.http.middlewares.nutribay-login-rl.ratelimit.burst=10
+      - traefik.http.routers.nutribay-login.rule=Host(`${DOMAIN}`) && PathPrefix(`/api/v1/auth/login`)
+      - traefik.http.routers.nutribay-login.entrypoints=websecure
+      - traefik.http.routers.nutribay-login.tls.certresolver=letsencrypt
+      - traefik.http.routers.nutribay-login.middlewares=nutribay-login-rl
+      - traefik.http.routers.nutribay-login.service=nutribay
+      - traefik.http.routers.nutribay-login.priority=100
 
 volumes:
   pgdata:

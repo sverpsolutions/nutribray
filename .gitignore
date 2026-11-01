@@ -9,3 +9,5 @@ __pycache__/
 backend/uploads/
 backend/FIRST_LOGIN.txt
 backend/BACKEND_CRASH_LOG.txt
+deploy/backups/
+deploy/.env
