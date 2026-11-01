@@ -1,0 +1,35 @@
+# Served on :80 inside the container; Traefik on the server terminates HTTPS.
+# Trust Traefik's X-Forwarded-Proto/For (private Docker network), so the API knows requests came in over https
+# and builds https redirects, and logs the real client IP.
+{
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+{$SITE_ADDRESS} {
+	encode gzip
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(self), microphone=(), geolocation=(), payment=()"
+		-Server
+		-X-Powered-By
+	}
+	handle /api/* {
+		reverse_proxy api:8000
+	}
+	handle /uploads/* {
+		reverse_proxy api:8000
+	}
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+	request_body {
+		max_size 20MB
+	}
+}

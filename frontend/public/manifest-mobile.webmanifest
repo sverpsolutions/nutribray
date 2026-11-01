@@ -1,0 +1,14 @@
+{
+  "name": "Nutribay Plant",
+  "short_name": "Nutribay",
+  "description": "Approvals, stock and counting for plant staff",
+  "start_url": "/m",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#701a75",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

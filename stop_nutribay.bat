@@ -1,0 +1,3 @@
+@echo off
+taskkill /FI "WINDOWTITLE eq NUTRIBAY-BACKEND*" /T /F
+taskkill /FI "WINDOWTITLE eq NUTRIBAY-FRONTEND*" /T /F

@@ -1,0 +1,46 @@
+{
+  "name": "modernbazaarho-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "typecheck": "tsc -b",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@zxing/browser": "^0.2.0",
+    "@zxing/library": "^0.22.0",
+    "axios": "^1.7.2",
+    "chart.js": "^4.5.1",
+    "clsx": "^2.1.1",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
+    "html5-qrcode": "^2.3.8",
+    "lucide-react": "^1.14.0",
+    "qrcode.react": "^4.2.0",
+    "react": "^18.3.1",
+    "react-barcode": "^1.6.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.74.0",
+    "react-hot-toast": "^2.6.0",
+    "react-router-dom": "^6.23.1",
+    "tailwind-merge": "^3.5.0",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.13"
+  }
+}

@@ -1,0 +1,11 @@
+.env
+venv/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+*.log
+*.tsbuildinfo
+backend/uploads/
+backend/FIRST_LOGIN.txt
+backend/BACKEND_CRASH_LOG.txt

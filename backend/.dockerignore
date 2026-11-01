@@ -1,0 +1,9 @@
+venv/
+venv_*/
+__pycache__/
+*.pyc
+.env
+.env.*
+uploads/
+scratch/
+*.log
