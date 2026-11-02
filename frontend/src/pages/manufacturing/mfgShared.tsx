@@ -4,17 +4,17 @@ import api from '../../api/axios';
 import { products_api, type product_search_item } from '../../api/products';
 
 export const err = (e: any) => toast.error(e?.response?.data?.detail?.toString?.() || 'Something went wrong');
-export const inp = 'w-full border border-slate-300 rounded-md px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300';
+export const inp = 'w-full border border-slate-300 rounded-md px-2 py-1.5 text-sm bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20';
 export const btn = 'px-3 py-1.5 rounded-md text-xs font-semibold';
-export const btnPri = `${btn} bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50`;
-export const btnSec = `${btn} border border-slate-300 text-slate-700 hover:bg-slate-50`;
+export const btnPri = `${btn} bg-primary text-white hover:bg-primary-hover disabled:opacity-50`;
+export const btnSec = `${btn} border border-slate-300 bg-white text-slate-700 hover:bg-slate-50`;
 
 export function Tabs({ tabs, value, onChange }: { tabs: string[]; value: string; onChange: (t: string) => void }) {
   return (
     <div className="flex gap-1 border-b border-slate-200 mb-4 overflow-x-auto">
       {tabs.map((t) => (
         <button key={t} onClick={() => onChange(t)}
-          className={`px-4 py-2 text-sm font-semibold whitespace-nowrap border-b-2 -mb-px ${value === t ? 'border-indigo-600 text-indigo-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}>
+          className={`px-4 py-2 text-sm font-semibold whitespace-nowrap border-b-2 -mb-px ${value === t ? 'border-primary text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-800'}`}>
           {t}
         </button>
       ))}
@@ -22,24 +22,23 @@ export function Tabs({ tabs, value, onChange }: { tabs: string[]; value: string;
   );
 }
 
-const STATUS: Record<string, string> = {
-  DRAFT: 'bg-amber-100 text-amber-800', APPROVED: 'bg-emerald-100 text-emerald-800', SUPERSEDED: 'bg-slate-200 text-slate-600',
-  INACTIVE: 'bg-rose-100 text-rose-700', PENDING: 'bg-amber-100 text-amber-800', REJECTED: 'bg-rose-100 text-rose-700',
-  CANCELLED: 'bg-slate-200 text-slate-600',
+const STATUS: Record<string, string> = {   // one meaning per colour, see index.css: green ready/done · amber waiting/short · red blocked/rejected · blue running · grey none
+  DRAFT: 'st-warn', APPROVED: 'st-ok', SUPERSEDED: 'st-none', INACTIVE: 'st-bad', PENDING: 'st-warn', REJECTED: 'st-bad', CANCELLED: 'st-none',
+  COMPLETED: 'st-ok', IN_PRODUCTION: 'st-info', OPEN: 'st-info', READY: 'st-ok', SHORT: 'st-warn', BLOCKED: 'st-bad',
 };
-export const Badge = ({ s }: { s: string }) => <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${STATUS[s] || 'bg-slate-100'}`}>{s}</span>;
+export const Badge = ({ s }: { s: string }) => <span className={`st ${STATUS[s] || 'st-none'}`}>{s.replace(/_/g, ' ').toLowerCase().replace(/^./, (c) => c.toUpperCase())}</span>;
 
 export function Table({ cols, rows, empty = 'Nothing here yet.' }: { cols: [string, (r: any) => any, string?][]; rows: any[]; empty?: string }) {
   return (
     <div className="overflow-x-auto bg-white border border-slate-200 rounded-lg">
-      <table className="w-full text-sm">
-        <thead className="bg-slate-50 text-slate-600 text-xs">
+      <table className="w-full text-sm tabular-nums">
+        <thead className="text-slate-500 text-xs border-b border-slate-200">
           <tr>{cols.map(([h, , cls]) => <th key={h} className={`px-3 py-2 text-left font-semibold ${cls || ''}`}>{h}</th>)}</tr>
         </thead>
         <tbody>
           {rows.length === 0 && <tr><td colSpan={cols.length} className="px-3 py-6 text-center text-slate-400">{empty}</td></tr>}
           {rows.map((r, i) => (
-            <tr key={r.id ?? i} className="border-t border-slate-100 hover:bg-slate-50">
+            <tr key={r.id ?? i} className="border-t border-slate-100 hover:bg-[var(--color-bg-row-hover)]">
               {cols.map(([h, f, cls]) => <td key={h} className={`px-3 py-2 ${cls || ''}`}>{f(r)}</td>)}
             </tr>
           ))}
@@ -118,21 +117,17 @@ export function CartonQty({ value, unit, upc, base = 'PCS', onChange }: { value:
 }
 
 export function Stat({ label, value, sub, tone = 'slate', onClick }: { label: string; value: any; sub?: string; tone?: string; onClick?: () => void }) {
-  const tones: Record<string, [string, string, string]> = {   // [card, value colour, label colour]
-    slate: ['border-l-slate-300 bg-white', 'text-slate-800', 'text-slate-500'],
-    green: ['border-l-emerald-500 bg-gradient-to-br from-emerald-50 to-white', 'text-emerald-700', 'text-emerald-700/80'],
-    amber: ['border-l-amber-500 bg-gradient-to-br from-amber-50 to-white', 'text-amber-700', 'text-amber-700/80'],
-    red: ['border-l-rose-500 bg-gradient-to-br from-rose-50 to-white', 'text-rose-700', 'text-rose-700/80'],
-    blue: ['border-l-indigo-500 bg-gradient-to-br from-indigo-50 to-white', 'text-indigo-700', 'text-indigo-700/80'],
-    teal: ['border-l-teal-500 bg-gradient-to-br from-teal-50 to-white', 'text-teal-700', 'text-teal-700/80'],
-    violet: ['border-l-violet-500 bg-gradient-to-br from-violet-50 to-white', 'text-violet-700', 'text-violet-700/80'],
-    sky: ['border-l-sky-500 bg-gradient-to-br from-sky-50 to-white', 'text-sky-700', 'text-sky-700/80'],
-  };
-  const [card, val, lab] = tones[tone] || tones.slate;
+  // colour only where it means something: green ready · amber waiting/short · red blocked/overdue · blue running; every other tone stays neutral
+  const code: Record<string, string> = { green: 'ok', amber: 'warn', red: 'bad', blue: 'info' };
+  const isZero = value === 0 || value === '0';
+  const c = isZero ? undefined : code[tone];
   return (
-    <div onClick={onClick} className={`border border-slate-200 border-l-4 rounded-lg px-3.5 py-2.5 shadow-sm ${card} ${onClick ? 'cursor-pointer hover:shadow-md hover:-translate-y-px transition' : ''}`}>
-      <div className={`text-xs font-medium tracking-tight ${lab}`}>{label}</div>
-      <div className={`text-2xl font-semibold leading-tight tabular-nums ${val}`}>{value}</div>
+    <div onClick={onClick} role={onClick ? 'button' : undefined} tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter') onClick(); } : undefined}
+      className={`rounded-lg border px-3.5 py-2.5 ${c ? 'border-transparent' : 'border-slate-200 bg-white'} ${onClick ? 'cursor-pointer hover:border-slate-400 transition-colors' : ''}`}
+      style={c ? { background: `var(--st-${c}-bg)` } : undefined}>
+      <div className="text-xs font-medium text-slate-500">{label}</div>
+      <div className="text-2xl font-semibold leading-tight tabular-nums" style={{ color: c ? `var(--st-${c})` : 'var(--color-text-primary)' }}>{value}</div>
       {sub && <div className="text-xs text-slate-500 mt-0.5">{sub}</div>}
     </div>
   );

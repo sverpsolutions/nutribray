@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,15 +6,36 @@
 
 :root {
   /* 🎨 COLOR TOKENS (NUTRIBAY — Official Brand Plum & Violet) */
-  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --font-sans: 'IBM Plex Sans', 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
   --color-primary:         #8c2785;
   --color-primary-hover:   #731f6d;
   --color-primary-light:   #fcf4fb;
   --color-accent:          #2c57a4;
   --color-accent-hover:    #234685;
-  --color-sidebar:         #1c1322;
-  --color-sidebar-active:  #331c3e;
+  /* Frame: one plum-tinted ground for sidebar (and the page behind the sheet); colour lives on data, not chrome */
+  --color-sidebar:         #f5eff5;
+  --color-sidebar-active:  #e8dde8;
+  --sb-text:   #4a3f52;
+  --sb-strong: #1c1322;
+  --sb-muted:  #84778d;
+  --sb-label:  #84778d;
+  --sb-hover:  #ece3ec;
+  --sb-active: #e2d5e2;
+  --sb-rule:   #e6dce6;
+  --sb-chip:   #e9dfe9;
+
+  /* STATUS COLOUR CODE — the same meaning on every screen, desktop and phone
+     green = ready / done · amber = short / waiting · red = blocked / overdue · blue = running / open · grey = none */
+  --st-ok:   #166534;  --st-ok-bg:   #e7f5ec;  --st-ok-dot:   #16a34a;
+  --st-warn: #9a5b00;  --st-warn-bg: #fdf1de;  --st-warn-dot: #d97706;
+  --st-bad:  #b42318;  --st-bad-bg:  #fdecea;  --st-bad-dot:  #dc2626;
+  --st-info: #1d4ed8;  --st-info-bg: #e8eefb;  --st-info-dot: #2563eb;
+  --st-none: #667085;  --st-none-bg: #f2f4f7;  --st-none-dot: #98a2b3;
+  /* MATERIAL KIND CODE — never reused for status */
+  --kind-rm: #0f766e;  --kind-rm-bg: #e3f3f1;   /* raw material / ingredient: teal */
+  --kind-pm: #6d3fc0;  --kind-pm-bg: #efe9fb;   /* packing material: violet */
+  --kind-fg: #8c2785;  --kind-fg-bg: #fcf4fb;   /* finished goods: brand plum */
 
   --color-bg-app:          #F8F9FB;
   --color-bg-card:         #FFFFFF;
@@ -91,6 +112,18 @@
   --color-status-active-text:  #6FD49A;
   --color-status-inactive-bg:  #3A1614;
   --color-status-inactive-text: #F2A19A;
+  --color-sidebar:         #0F1A20;
+  --color-sidebar-active:  #16303B;
+  --sb-text:   #B9C4CC;  --sb-strong: #FFFFFF;  --sb-muted: #8A9AA5;  --sb-label: #8A9AA5;
+  --sb-hover:  #16303B;  --sb-active: #1E3A47;  --sb-rule:  #22323C;  --sb-chip:  #1E313C;
+  --st-ok:   #6FD49A;  --st-ok-bg:   #0F2E1F;  --st-ok-dot:   #34c46f;
+  --st-warn: #F2C46D;  --st-warn-bg: #33270F;  --st-warn-dot: #f0a93a;
+  --st-bad:  #F2A19A;  --st-bad-bg:  #3A1614;  --st-bad-dot:  #ef5a4e;
+  --st-info: #9DB5F0;  --st-info-bg: #18233F;  --st-info-dot: #6c8ff0;
+  --st-none: #A9B6BF;  --st-none-bg: #16222A;  --st-none-dot: #6b7c88;
+  --kind-rm: #5fd3c7;  --kind-rm-bg: #0f2e2b;
+  --kind-pm: #b79cf2;  --kind-pm-bg: #241b3d;
+  --kind-fg: #e08ad8;  --kind-fg-bg: #34162f;
 }
 
 /* Older pages hard-code light utilities; map the common ones onto the dark tokens.
@@ -153,7 +186,7 @@
   }
   
   html {
-    font-feature-settings: 'cv11', 'ss03';   /* Inter: clearer 1 / l / I and simple 'a' */
+    font-variant-numeric: tabular-nums;
     text-rendering: optimizeLegibility;
   }
 
@@ -176,11 +209,9 @@
   }
 
   h2, .section-title {
-    font-size: var(--fs-section-header);
+    font-size: 16px;
     font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
+    line-height: 22px;
   }
 
   h3 { font-size: 14px; font-weight: 600; }
@@ -409,7 +440,7 @@
 /* ── SIDEBAR ADAPTATION ─────────────────────────────── */
 .sidebar {
   background: var(--color-sidebar);
-  color: #B9C4CC;
+  color: var(--sb-text);
   z-index: 50;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -423,14 +454,14 @@
   padding: 0 12px;
   gap: 12px;
   border-radius: 8px;
-  color: #B9C4CC;
+  color: var(--sb-text);
   transition: background 0.15s ease, color 0.15s ease;
   cursor: pointer;
 }
 
 .sidebar-item:hover {
-  background: var(--color-sidebar-active);
-  color: #FFFFFF;
+  background: var(--sb-hover);
+  color: var(--sb-strong);
 }
 
 /* Nav links: no global link underline */
@@ -438,24 +469,38 @@
 #app-sidebar a:hover { text-decoration: none; }
 
 .sidebar-item.active {
-  color: #FFFFFF;
-  background: var(--color-sidebar-active);
+  color: var(--sb-strong);
+  background: var(--sb-active);
+  font-weight: 600;
 }
 
 .sidebar-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  color: #94A3B8; /* slate-400 */
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--sb-label);
   padding: 16px 16px 8px;
 }
 
 /* Custom Scrollbar for Sidebar */
 .sidebar-scroll::-webkit-scrollbar { width: 4px; }
 .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
-.sidebar-scroll::-webkit-scrollbar-thumb { background: #1E313C; border-radius: 10px; }
-.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: #2A4552; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: var(--sb-active); border-radius: 10px; }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: var(--sb-muted); }
+
+/* ── COLOUR CODE helpers (use these, not ad-hoc tailwind colours, for status and material kind) ── */
+.st { display:inline-flex; align-items:center; gap:6px; padding:2px 8px; border-radius:6px; font-size:12px; font-weight:600; line-height:1.5; white-space:nowrap; }
+.st::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; opacity:.9; }
+.st-ok   { color:var(--st-ok);   background:var(--st-ok-bg); }
+.st-warn { color:var(--st-warn); background:var(--st-warn-bg); }
+.st-bad  { color:var(--st-bad);  background:var(--st-bad-bg); }
+.st-info { color:var(--st-info); background:var(--st-info-bg); }
+.st-none { color:var(--st-none); background:var(--st-none-bg); }
+.kind { display:inline-flex; align-items:center; padding:1px 7px; border-radius:6px; font-size:11px; font-weight:600; }
+.kind-rm { color:var(--kind-rm); background:var(--kind-rm-bg); }
+.kind-pm { color:var(--kind-pm); background:var(--kind-pm-bg); }
+.kind-fg { color:var(--kind-fg); background:var(--kind-fg-bg); }
+.num { font-variant-numeric: tabular-nums; }
+code, kbd, .mono { font-family: var(--font-mono); }
 
 /* Animation Classes (Manual fallback for tailwind-animate) */
 .animate-in {

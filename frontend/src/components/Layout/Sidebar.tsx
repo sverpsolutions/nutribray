@@ -299,8 +299,8 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
     >
       <div className={`${showFull ? 'w-[248px]' : 'w-[64px]'} flex flex-col h-full shrink-0 transition-all duration-300`}>
         {/* ── Brand Header ── */}
-        <div className="h-[64px] flex items-center px-4 gap-3 shrink-0 border-b border-white/5">
-          <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0 overflow-hidden p-1 shadow-inner">
+        <div className="h-[64px] flex items-center px-4 gap-3 shrink-0 border-b border-[var(--sb-rule)]">
+          <div className="w-9 h-9 rounded-lg bg-[var(--sb-chip)] flex items-center justify-center shrink-0 overflow-hidden p-1 shadow-inner">
             <img 
               src={logo_path || "/nutribay_logo.svg"} 
               alt="NUTRIBAY" 
@@ -311,7 +311,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
           
           {showFull && (
             <div className="min-w-0 flex-1 animate-in fade-in slide-in-from-left-2 duration-300">
-              <p className="text-white text-[15px] font-bold tracking-tight m-0 leading-tight truncate" title={brand_name || 'nutribay'}>{brand_name || 'nutribay'}</p>
+              <p className="text-[var(--sb-strong)] text-[15px] font-bold tracking-tight m-0 leading-tight truncate" title={brand_name || 'nutribay'}>{brand_name || 'nutribay'}</p>
               <span className="block text-[11px] text-purple-200/60 font-medium leading-tight mt-0.5">Manufacturing ERP</span>
             </div>
           )}
@@ -320,7 +320,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
             <div className="flex gap-1 animate-in fade-in duration-500">
               <button 
                 onClick={onPinToggle}
-                className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${isPinned ? 'bg-[#16303B] text-white' : 'text-[#8A9AA5] hover:bg-[#16303B] hover:text-white'}`}
+                className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${isPinned ? 'bg-[var(--sb-hover)] text-[var(--sb-strong)]' : 'text-[var(--sb-muted)] hover:bg-[var(--sb-hover)] hover:text-[var(--sb-strong)]'}`}
                 title={isPinned ? "Unpin Sidebar (Auto-Hide)" : "Pin Sidebar"}
                 aria-label={isPinned ? "Unpin sidebar" : "Pin sidebar"}
               >
@@ -328,7 +328,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
               </button>
               <button 
                 onClick={onToggle}
-                className="w-8 h-8 rounded-md flex items-center justify-center transition-colors text-[#8A9AA5] hover:bg-[#16303B] hover:text-white"
+                className="w-8 h-8 rounded-md flex items-center justify-center transition-colors text-[var(--sb-muted)] hover:bg-[var(--sb-hover)] hover:text-[var(--sb-strong)]"
                 title="Close Sidebar"
                 aria-label="Close sidebar"
               >
@@ -377,7 +377,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
                       <NavLink 
                         key={child.to} 
                         to={child.to} 
-                        className={({ isActive: routeActive }) => { const [cp, cq] = child.to.split('?'); const isActive = routeActive && (cq ? location.search === '?' + cq : (cp !== '/products/list' || !location.search)); return `flex items-center h-[34px] px-2.5 rounded-md text-[13px] transition-colors ${isActive ? 'bg-[#14A3A8] text-[#06222A] font-semibold' : 'text-[#B9C4CC] hover:bg-[#16303B] hover:text-white'}`; }}
+                        className={({ isActive: routeActive }) => { const [cp, cq] = child.to.split('?'); const isActive = routeActive && (cq ? location.search === '?' + cq : (cp !== '/products/list' || !location.search)); return `flex items-center h-[34px] px-2.5 rounded-md text-[13px] transition-colors ${isActive ? 'bg-[var(--sb-active)] text-[var(--sb-strong)] font-semibold' : 'text-[var(--sb-text)] hover:bg-[var(--sb-hover)] hover:text-[var(--sb-strong)]'}`; }}
                       >
                         <span className="truncate">{child.label}</span>
                       </NavLink>
@@ -392,17 +392,17 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
         {/* ── Footer ── */}
         <div className={`p-3 border-t border-[#1E313C] space-y-1 ${!showFull ? 'items-center flex flex-col' : ''}`}>
           <div className={`flex items-center gap-3 ${showFull ? 'px-2 py-2' : 'w-10 h-10 justify-center'}`} title={!showFull ? user?.name : ''}>
-            <div className="w-8 h-8 rounded-full bg-[#1E313C] flex items-center justify-center text-[13px] font-semibold text-white shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[var(--sb-chip)] flex items-center justify-center text-[13px] font-semibold text-[var(--sb-strong)] shrink-0">
               {(user?.name || 'A').charAt(0).toUpperCase()}
             </div>
             {showFull && (
               <div className="min-w-0 flex-1 animate-in fade-in duration-300">
-                <p className="text-white text-[13px] font-medium truncate m-0">{user?.name || 'Admin'}</p>
-                <p className="text-[#8A9AA5] text-[12px] m-0 truncate">{user?.role || 'User'}</p>
+                <p className="text-[var(--sb-strong)] text-[13px] font-medium truncate m-0">{user?.name || 'Admin'}</p>
+                <p className="text-[var(--sb-muted)] text-[12px] m-0 truncate">{user?.role || 'User'}</p>
               </div>
             )}
           </div>
-          <button onClick={logout} className={`sidebar-item relative w-full hover:!text-[#FCA5A5] ${!showFull ? 'justify-center px-0' : ''}`} title="Logout">
+          <button onClick={logout} className={`sidebar-item relative w-full hover:!text-[#b42318] ${!showFull ? 'justify-center px-0' : ''}`} title="Logout">
             <i className="fas fa-sign-out-alt w-5 text-center"></i>
             {showFull && <span className="animate-in fade-in duration-300">Logout</span>}
           </button>

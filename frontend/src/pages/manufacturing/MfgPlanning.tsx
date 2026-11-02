@@ -120,8 +120,8 @@ function Lines({ lines, onTransfer, onBuy }: { lines: any[]; onTransfer?: (l: an
   const buy = lines.filter((l) => l.purchase_suggested > 0);
   return (
     <div className="space-y-2">
-      {[['Raw materials & ingredients', (l: any) => l.item_type !== 'PM', 'fa-wheat-awn', 'bg-emerald-600', 'border-emerald-200 bg-emerald-50/40'],
-        ['Packing materials', (l: any) => l.item_type === 'PM', 'fa-box', 'bg-amber-500', 'border-amber-200 bg-amber-50/40']].map(([title, test, icon, bar, box]: any) => {
+      {[['Raw materials & ingredients', (l: any) => l.item_type !== 'PM', 'fa-wheat-awn', 'bg-[var(--kind-rm)]', 'border-slate-200 bg-[var(--kind-rm-bg)]'],
+        ['Packing materials', (l: any) => l.item_type === 'PM', 'fa-box', 'bg-[var(--kind-pm)]', 'border-slate-200 bg-[var(--kind-pm-bg)]']].map(([title, test, icon, bar, box]: any) => {
         const grp = lines.filter(test).sort((a, b) => (b.shortage > 0 ? 1 : 0) - (a.shortage > 0 ? 1 : 0) || String(a.item).localeCompare(String(b.item)));
         if (!grp.length) return null;
         const short = grp.filter((l) => l.shortage > 0).length;

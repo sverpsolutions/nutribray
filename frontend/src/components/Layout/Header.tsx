@@ -172,7 +172,7 @@ export default function Header({ onSidebarToggle }: HeaderProps) {
   const unreadCount = notifications.filter(n => !n.read).length;
 
   return (
-    <header className="h-[64px] bg-white border-b border-border flex items-center px-6 gap-4 sticky top-0 z-50">
+    <header className="h-[64px] bg-[var(--color-sidebar)] flex items-center px-6 gap-4 sticky top-0 z-50">
       <button 
         id="sidebar-toggle-btn"
         onClick={onSidebarToggle}
@@ -198,14 +198,11 @@ export default function Header({ onSidebarToggle }: HeaderProps) {
         </div>
       </div>
 
-      {/* NUTRIBAY Multi-Store Location Scope Indicator */}
-      <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 bg-purple-50/90 border border-purple-200/70 rounded-xl text-xs text-purple-950 font-medium shadow-xs">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-        <span className="font-extrabold text-[#8c2785]">NUTRIBAY HQ</span>
-        <span className="text-purple-300">/</span>
-        <span className="text-slate-600 font-semibold">NCR01 • Delhi NCR</span>
-        <span className="text-purple-300">/</span>
-        <span className="px-2 py-0.5 rounded-full bg-[#8c2785] text-white text-[10px] font-black tracking-wide">20 Outlets 24/7</span>
+      {/* Scope: which plant this screen is about */}
+      <div className="hidden xl:flex items-center gap-2 text-[13px] text-text-secondary">
+        <span className="font-semibold text-text-primary">Nutribay plant</span>
+        <span className="text-border-strong">/</span>
+        <span>NCR01, Delhi NCR</span>
       </div>
 
       <div className="flex items-center gap-4 ml-auto">
