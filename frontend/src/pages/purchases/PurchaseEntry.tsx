@@ -2309,7 +2309,7 @@ export default function PurchaseEntry() {
                       />
                     )}
                     <h1 className="text-2xl font-black text-slate-900 tracking-wide uppercase">
-                      {company?.brand_name || 'NUTRIBAY'}
+                      {company?.brand_name || 'NUTRIBRAY'}
                     </h1>
                     <p className="text-slate-500 mt-0.5">{company?.ho_address || 'Central Warehouse & Head Office'}</p>
                     {company?.gstin && (

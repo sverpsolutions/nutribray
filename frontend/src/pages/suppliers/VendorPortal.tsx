@@ -388,7 +388,7 @@ export default function VendorPortal() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="space-y-1">
             <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-300 border border-blue-400/30">
-              Nutribay Partner Portal
+              Nutribray Partner Portal
             </span>
             <h1 className="text-2xl font-black tracking-tight">{supplier?.name}</h1>
             <p className="text-xs text-blue-200/80 flex items-center gap-3 flex-wrap">
@@ -680,7 +680,7 @@ export default function VendorPortal() {
           <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Approved Purchase Orders</h3>
-              <p className="text-xs text-slate-500">Official POs dispatched by Nutribay purchasing department</p>
+              <p className="text-xs text-slate-500">Official POs dispatched by Nutribray purchasing department</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="relative">
@@ -776,7 +776,7 @@ export default function VendorPortal() {
           <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Goods Received Notes (GRN)</h3>
-              <p className="text-xs text-slate-500">Official posted inventory receipts verified at Nutribay receiving docks</p>
+              <p className="text-xs text-slate-500">Official posted inventory receipts verified at Nutribray receiving docks</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="relative">
@@ -939,7 +939,7 @@ export default function VendorPortal() {
           <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 flex justify-between items-center flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Cheque Management</h3>
-              <p className="text-xs text-slate-500">Track cheques issued by Nutribay finance department for your payments</p>
+              <p className="text-xs text-slate-500">Track cheques issued by Nutribray finance department for your payments</p>
             </div>
             {/* Status Filter Tabs */}
             <div className="flex gap-1 bg-slate-100 p-1 rounded-lg">
@@ -1049,7 +1049,7 @@ export default function VendorPortal() {
               <p className="text-2xl font-black text-emerald-400 mt-1">
                 ₹{Number(ledgerData?.closing_balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
               </p>
-              <span className="text-[10px] text-slate-400 mt-1 block">Payable by Nutribay</span>
+              <span className="text-[10px] text-slate-400 mt-1 block">Payable by Nutribray</span>
             </div>
           </div>
 
@@ -1208,7 +1208,7 @@ export default function VendorPortal() {
           <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Purchase Invoices & Bills</h3>
-              <p className="text-xs text-slate-500">Verified vendor invoices processed by Nutribay accounts</p>
+              <p className="text-xs text-slate-500">Verified vendor invoices processed by Nutribray accounts</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="relative">
@@ -1231,8 +1231,8 @@ export default function VendorPortal() {
                 <tr>
                   <th className="px-6 py-3">Invoice Number</th>
                   <th className="px-6 py-3">Invoice Date</th>
-                  <th className="px-6 py-3">Nutribay GRN #</th>
-                  <th className="px-6 py-3">Nutribay Store/Unit</th>
+                  <th className="px-6 py-3">Nutribray GRN #</th>
+                  <th className="px-6 py-3">Nutribray Store/Unit</th>
                   <th className="px-6 py-3 text-right">Taxable Amount</th>
                   <th className="px-6 py-3 text-right">Tax (GST)</th>
                   <th className="px-6 py-3 text-right">Net Bill Amount</th>
@@ -1248,7 +1248,7 @@ export default function VendorPortal() {
                       <td className="px-6 py-3 font-mono font-bold text-slate-900">{inv.invoice_no}</td>
                       <td className="px-6 py-3 text-slate-600">{inv.invoice_date}</td>
                       <td className="px-6 py-3 font-mono text-blue-600 font-bold">{inv.purchase_no}</td>
-                      <td className="px-6 py-3 text-slate-700">{inv.unit_name || 'Nutribay Store'}</td>
+                      <td className="px-6 py-3 text-slate-700">{inv.unit_name || 'Nutribray Store'}</td>
                       <td className="px-6 py-3 text-right font-mono">₹{Number(inv.taxable_amount || 0).toFixed(2)}</td>
                       <td className="px-6 py-3 text-right font-mono text-slate-500">₹{Number(inv.tax_amount || 0).toFixed(2)}</td>
                       <td className="px-6 py-3 text-right font-mono font-bold text-slate-900">₹{Number(inv.total_amount || 0).toFixed(2)}</td>
@@ -1275,7 +1275,7 @@ export default function VendorPortal() {
               <h3 className="text-base font-black text-amber-900">Item Sales Reports Not Enabled</h3>
               <p className="text-xs text-amber-700 leading-relaxed">
                 Item sales reporting is controlled by the purchasing department and is not currently activated for your vendor account.
-                Please contact the Nutribay procurement team to request access to sell-through reports.
+                Please contact the Nutribray procurement team to request access to sell-through reports.
               </p>
             </div>
           ) : salesLoading ? (
@@ -1354,7 +1354,7 @@ export default function VendorPortal() {
           <div className="flex justify-between items-center bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Product Proposals</h3>
-              <p className="text-xs text-slate-500">Propose new products for listing in Nutribay stores</p>
+              <p className="text-xs text-slate-500">Propose new products for listing in Nutribray stores</p>
             </div>
             <button
               onClick={() => setNewItemModal(true)}
@@ -1420,7 +1420,7 @@ export default function VendorPortal() {
           <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex items-center justify-between flex-wrap gap-4">
             <div>
               <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider">Company & Account Details</h3>
-              <p className="text-xs text-slate-500">Live verified information in Nutribay Supplier Master</p>
+              <p className="text-xs text-slate-500">Live verified information in Nutribray Supplier Master</p>
             </div>
             {perms.update_profile !== false && (
               <button
@@ -1629,7 +1629,7 @@ export default function VendorPortal() {
       </Modal>
 
       {/* ── MODAL: PROPOSE NEW ITEM ─────────────────────────────────────────── */}
-      <Modal open={newItemModal} onClose={() => setNewItemModal(false)} title="Propose New Item to Nutribay">
+      <Modal open={newItemModal} onClose={() => setNewItemModal(false)} title="Propose New Item to Nutribray">
         <form onSubmit={handleSubmitNewItem} className="p-6 space-y-4 text-xs max-h-[80vh] overflow-y-auto">
           <div className="grid grid-cols-2 gap-4">
             <div>

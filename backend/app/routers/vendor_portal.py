@@ -115,7 +115,7 @@ async def vendor_login(body: vendor_login_in, db: AsyncSession = Depends(get_db)
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid username or password")
 
     if not db_user.status:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Your vendor account is inactive or suspended. Please contact Nutribay Head Office.")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Your vendor account is inactive or suspended. Please contact Nutribray Head Office.")
 
     if not db_user.supplier_id and db_user.role not in ("admin", "manager"):
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="No supplier profile is linked to this account.")
@@ -1289,7 +1289,7 @@ async def get_vendor_item_sales(
     if not supp.portal_sales_enabled:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Item sales reports are not enabled for your vendor account. Please contact the Nutribay purchasing department.",
+            detail="Item sales reports are not enabled for your vendor account. Please contact the Nutribray purchasing department.",
         )
 
     cfg = supp.portal_sales_config or {}

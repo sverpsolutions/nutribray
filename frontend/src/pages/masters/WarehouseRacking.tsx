@@ -720,7 +720,7 @@ export default function WarehouseRacking() {
 </style>
 </head><body>
 <div class="label">
-  <div class="store">Nutribay Warehouse</div>
+  <div class="store">Nutribray Warehouse</div>
   <div class="rack-name">${code}</div>
   <div class="location">
     Aisle: ${selectedRack.aisle_code || '—'} &nbsp;|&nbsp;

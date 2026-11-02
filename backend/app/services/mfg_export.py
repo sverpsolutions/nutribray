@@ -27,7 +27,7 @@ def _fallback_logo() -> str:
                 break
             except OSError:
                 f = ImageFont.load_default()
-        d.text((120, 190), "NUTRIBAY", fill="white", font=f, anchor="mm")
+        d.text((120, 190), "NUTRIBRAY", fill="white", font=f, anchor="mm")
         im.save(_FALLBACK)
     return _FALLBACK
 
@@ -40,7 +40,7 @@ async def company_head(db) -> dict:
     logo = local if local and os.path.exists(local) and local.lower().endswith((".png", ".jpg", ".jpeg")) else _fallback_logo()
     addr = " · ".join(x for x in [r.get("reg_address") or r.get("ho_address"), r.get("reg_city"), r.get("ho_phone") and f"Ph: {r['ho_phone']}",
                                   r.get("gstin") and f"GSTIN: {r['gstin']}"] if x)
-    return {"name": r.get("name") or "Nutribay", "address": addr, "logo": logo}
+    return {"name": r.get("name") or "Nutribray", "address": addr, "logo": logo}
 
 
 def build(head: dict, title: str, meta: list, cols: list[str], rows: list[list]) -> bytes:

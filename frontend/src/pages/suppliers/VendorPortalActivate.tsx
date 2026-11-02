@@ -65,7 +65,7 @@ export default function VendorPortalActivate() {
             role_id: null,
             outlet_id: null,
           })
-          toast.success('Account activated! Welcome to Nutribay Vendor Portal.')
+          toast.success('Account activated! Welcome to Nutribray Vendor Portal.')
           navigate('/vendor-portal', { replace: true })
           return
         }
@@ -92,7 +92,7 @@ export default function VendorPortalActivate() {
             {isReset ? 'Set New Password' : 'Set Up Your Vendor Account'}
           </h2>
           <p className="text-xs uppercase tracking-widest text-emerald-400 font-bold">
-            Nutribay Vendor Portal Security
+            Nutribray Vendor Portal Security
           </p>
         </div>
 

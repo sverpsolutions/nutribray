@@ -168,7 +168,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
             </span>
           </div>
           <span className="text-yellow-600 flex items-center gap-1 font-black">
-            Nutribay Command Center
+            Nutribray Command Center
           </span>
         </div>
       </div>

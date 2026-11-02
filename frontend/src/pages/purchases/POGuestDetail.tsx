@@ -115,7 +115,7 @@ export default function POGuestDetail() {
               <i className="fas fa-store text-white"></i>
             </div>
             <div>
-              <p className="font-black text-sm tracking-widest">{company?.brand_name || 'NUTRIBAY'}</p>
+              <p className="font-black text-sm tracking-widest">{company?.brand_name || 'NUTRIBRAY'}</p>
               <p className="text-[10px] text-indigo-300 font-medium tracking-widest uppercase">Vendor Portal</p>
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function POGuestDetail() {
             {company?.logo_path && (
               <img src={company.logo_path.startsWith('http') || company.logo_path.startsWith('/') ? company.logo_path : `/${company.logo_path}`} alt="Logo" className="h-16 mb-2 object-contain" />
             )}
-            <h1 className="text-3xl font-black text-slate-800 uppercase tracking-widest">{company?.brand_name || 'NUTRIBAY'}</h1>
+            <h1 className="text-3xl font-black text-slate-800 uppercase tracking-widest">{company?.brand_name || 'NUTRIBRAY'}</h1>
             <p className="text-sm text-slate-600 mt-1 whitespace-pre-wrap">{company?.ho_address || 'Head Office'}</p>
             <p className="text-sm text-slate-600 mt-1">
               {company?.ho_email ? `Email: ${company.ho_email}` : ''}
@@ -171,7 +171,7 @@ export default function POGuestDetail() {
           </div>
           <div>
             <h3 className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-1.5 uppercase tracking-wider mb-2 rounded border border-emerald-100">Delivery To</h3>
-            <div className="font-bold text-slate-800 text-lg">{po.is_master ? company?.ho_address || 'Head Office' : po.outlet_name || (company?.brand_name || 'NUTRIBAY')}</div>
+            <div className="font-bold text-slate-800 text-lg">{po.is_master ? company?.ho_address || 'Head Office' : po.outlet_name || (company?.brand_name || 'NUTRIBRAY')}</div>
             {po.is_master ? (
               <div className="mt-2 p-3 bg-indigo-50 border border-indigo-200 rounded-lg flex gap-3 items-center">
                 <div className="bg-white p-1 rounded-lg border border-slate-200">

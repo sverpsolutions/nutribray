@@ -17,7 +17,7 @@ class settings(BaseSettings):
     refresh_token_expire_days: int = 7
 
     # app
-    app_name: str = "Nutribay Manufacturing ERP"
+    app_name: str = "Nutribray Manufacturing ERP"
     app_version: str = "1.0.0"
     debug: bool = False
     allowed_origins: str = "http://localhost:5174,http://127.0.0.1:5174"

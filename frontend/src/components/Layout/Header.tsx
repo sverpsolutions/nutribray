@@ -200,7 +200,7 @@ export default function Header({ onSidebarToggle }: HeaderProps) {
 
       {/* Scope: which plant this screen is about */}
       <div className="hidden xl:flex items-center gap-2 text-[13px] text-text-secondary">
-        <span className="font-semibold text-text-primary">Nutribay plant</span>
+        <span className="font-semibold text-text-primary">Nutribray plant</span>
         <span className="text-border-strong">/</span>
         <span>NCR01, Delhi NCR</span>
       </div>

@@ -256,7 +256,7 @@ const OutletMaster = () => {
   };
 
   const sendWhatsApp = (o: Outlet) => {
-    const text = `*NUTRIBAY Store: ${o.display_name || o.outlet_name}*\nUnit: ${o.unit_code}\nZone: ${o.zone_name || 'N/A'}\nAddress: ${o.address || 'N/A'}\nManager: ${o.manager_name || 'N/A'}\nPhone: ${o.manager_mobile || o.store_phone || 'N/A'}`;
+    const text = `*NUTRIBRAY Store: ${o.display_name || o.outlet_name}*\nUnit: ${o.unit_code}\nZone: ${o.zone_name || 'N/A'}\nAddress: ${o.address || 'N/A'}\nManager: ${o.manager_name || 'N/A'}\nPhone: ${o.manager_mobile || o.store_phone || 'N/A'}`;
     const url = `https://wa.me/${o.whatsapp_number || o.manager_mobile}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
@@ -350,12 +350,12 @@ const OutletMaster = () => {
       <div className="bg-gradient-to-r from-[#1c1322] via-[#2f1338] to-[#1a1c36] text-white p-6 rounded-3xl shadow-xl border border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center p-1.5 shadow-inner border border-white/20 shrink-0">
-            <img src="/nutribay_logo.svg" alt="NUTRIBAY" className="w-full h-full object-contain" />
+            <img src="/nutribay_logo.svg" alt="NUTRIBRAY" className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-[#8c2785] text-white text-[10px] font-black tracking-widest uppercase">
-                NUTRIBAY
+                NUTRIBRAY
               </span>
               <span className="text-purple-300 text-xs font-semibold">24/7 Retail Operations</span>
             </div>
@@ -680,7 +680,7 @@ const OutletMaster = () => {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-100">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-2xl bg-purple-50 p-2 border border-purple-200 flex items-center justify-center shrink-0">
-                  <img src="/nutribay_logo.svg" alt="NUTRIBAY" className="max-w-full max-h-full object-contain" />
+                  <img src="/nutribay_logo.svg" alt="NUTRIBRAY" className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
                   <span className="px-2.5 py-0.5 rounded-md bg-[#8c2785] text-white text-[10px] font-black uppercase">
@@ -891,10 +891,10 @@ const OutletMaster = () => {
             <div className="p-6 bg-gradient-to-r from-[#1c1322] to-[#2f1338] text-white flex justify-between items-center">
               <div>
                 <span className="text-[10px] font-black uppercase tracking-wider text-purple-300">
-                  NUTRIBAY Store Registry
+                  NUTRIBRAY Store Registry
                 </span>
                 <h3 className="text-lg font-black text-white mt-0.5">
-                  {editId ? 'Modify Store Information' : 'Register New NUTRIBAY Store'}
+                  {editId ? 'Modify Store Information' : 'Register New NUTRIBRAY Store'}
                 </h3>
               </div>
               <button 
@@ -932,7 +932,7 @@ const OutletMaster = () => {
                       <input 
                         required 
                         type="text" 
-                        placeholder="e.g. nutribay - South Extension" 
+                        placeholder="e.g. nutribray - South Extension" 
                         className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl"
                         value={formData.outlet_name || ''} 
                         onChange={e => setFormData({...formData, outlet_name: e.target.value})} 
@@ -942,7 +942,7 @@ const OutletMaster = () => {
                       <label className="font-bold text-slate-700 block mb-1">Display Name (Signage)</label>
                       <input 
                         type="text" 
-                        placeholder="e.g. NUTRIBAY South Extension Market" 
+                        placeholder="e.g. NUTRIBRAY South Extension Market" 
                         className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl"
                         value={formData.display_name || ''} 
                         onChange={e => setFormData({...formData, display_name: e.target.value})} 

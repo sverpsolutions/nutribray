@@ -401,7 +401,7 @@ export default function MobileApp() {
     <div className="min-h-dvh bg-white text-slate-800" style={{ fontFamily: 'var(--font-sans)' }}>
       <header className="sticky top-0 z-30 flex min-h-12 items-center justify-between px-4 text-slate-900" style={{ background: 'var(--color-sidebar)', paddingTop: 'env(safe-area-inset-top)' }}>
         <h1 className="text-base font-semibold">{title}</h1>
-        <span className="text-xs text-slate-500">Nutribay plant</span>
+        <span className="text-xs text-slate-500">Nutribray plant</span>
       </header>
       <main className="p-4" style={{ paddingBottom: 'calc(5.5rem + env(safe-area-inset-bottom))' }}>
         {tab === 'home' && <Home go={go} />}

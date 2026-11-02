@@ -898,7 +898,7 @@ const LogisticTransferWizard = () => {
                     </div>
                     <h4 className="font-bold text-slate-900 text-sm">Delivery Challan & Dispatch Note</h4>
                     <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                      Rule 55 CGST stock transfer note with NUTRIBAY official letterhead, item manifest, HSN, barcodes & signature blocks.
+                      Rule 55 CGST stock transfer note with NUTRIBRAY official letterhead, item manifest, HSN, barcodes & signature blocks.
                     </p>
                   </div>
                   <button

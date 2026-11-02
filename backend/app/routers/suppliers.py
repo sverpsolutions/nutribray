@@ -1478,11 +1478,11 @@ async def get_supplier_portal_access(
     activation_token = v_user.reset_token if (v_user and v_user.reset_token) else supp.onboarding_token
     portal_link = f"/vendor/activate/{activation_token}" if activation_token else "/vendor-portal"
 
-    invitation_text = f"""Subject: Your Supplier Portal Access - NUTRIBAY
+    invitation_text = f"""Subject: Your Supplier Portal Access - NUTRIBRAY
 
 Dear {supp.name},
 
-Your official Supplier Portal account for NUTRIBAY (Nutribay) has been created.
+Your official Supplier Portal account for NUTRIBRAY (Nutribray) has been created.
 
 Login Username: {v_user.username if v_user else (supp.supplier_code or 'pending')}
 Portal Access URL: {portal_link}
@@ -1499,7 +1499,7 @@ For security, please set a strong password upon your first login and do not shar
 
 Regards,
 Purchase & Accounts Department
-NUTRIBAY — Nutribay"""
+NUTRIBRAY — Nutribray"""
 
     return {
         "supplier_id": supp.id,

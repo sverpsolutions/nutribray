@@ -246,7 +246,7 @@ if __name__ == "__main__":
                "vendor_address": "MG Road", "vendor_city": "Delhi", "deliver_to": "Store 1", "deliver_address": "CP", "total_amount": Decimal("1180"),
                "payment_terms": "30 days", "delivery_terms": "Door delivery", "notes": None, "approved_by_name": "Admin"},
          "items": [{"item_code": "A1", "name": "Tea ₹ 500g", "hsn_code": "0902", "qty": 10, "rate": 100, "gst_percent": 18, "mrp": 150, "total": 1180}],
-         "terms": [{"title": "Quality", "description": "As per sample"}], "co": {"legal_name": "Nutribay", "gstin": "07AAACG1234F1Z6"}}
+         "terms": [{"title": "Quality", "description": "As per sample"}], "co": {"legal_name": "Nutribray", "gstin": "07AAACG1234F1Z6"}}
     b = build_pdf(d)
     assert b[:4] == b"%PDF" and len(b) > 1000
     assert valid_emails("a@b.com; bad, c@d.in") == ["a@b.com", "c@d.in"]

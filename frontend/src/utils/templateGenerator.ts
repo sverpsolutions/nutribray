@@ -52,7 +52,7 @@ const TITLE_BG = 'FF0D47A1'; // Title row
 
 export async function downloadProfessionalTemplate() {
   const wb = new ExcelJS.Workbook();
-  wb.creator = 'Nutribay ERP';
+  wb.creator = 'Nutribray ERP';
   wb.created = new Date();
 
   // ── Sheet 1: Item Master ──────────────────────────────────────────
@@ -61,7 +61,7 @@ export async function downloadProfessionalTemplate() {
   });
 
   // Row 1: Title
-  const titleRow = ws.addRow(['NUTRIBAY — PRODUCT IMPORT TEMPLATE']);
+  const titleRow = ws.addRow(['NUTRIBRAY — PRODUCT IMPORT TEMPLATE']);
   ws.mergeCells(1, 1, 1, COLUMNS.length);
   titleRow.height = 36;
   titleRow.getCell(1).font = { bold: true, size: 14, color: { argb: 'FFFFFFFF' } };

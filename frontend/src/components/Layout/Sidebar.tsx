@@ -303,7 +303,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
           <div className="w-9 h-9 rounded-lg bg-[var(--sb-chip)] flex items-center justify-center shrink-0 overflow-hidden p-1 shadow-inner">
             <img 
               src={logo_path || "/nutribay_logo.svg"} 
-              alt="NUTRIBAY" 
+              alt="NUTRIBRAY" 
               className="w-full h-full object-contain" 
               onError={(e) => { e.currentTarget.src = "/nutribay_logo.svg"; }}
             />
@@ -311,7 +311,7 @@ export default function Sidebar({ collapsed, onToggle, isPinned, onPinToggle }: 
           
           {showFull && (
             <div className="min-w-0 flex-1 animate-in fade-in slide-in-from-left-2 duration-300">
-              <p className="text-[var(--sb-strong)] text-[15px] font-bold tracking-tight m-0 leading-tight truncate" title={brand_name || 'nutribay'}>{brand_name || 'nutribay'}</p>
+              <p className="text-[var(--sb-strong)] text-[15px] font-bold tracking-tight m-0 leading-tight truncate" title={brand_name || 'nutribray'}>{brand_name || 'nutribray'}</p>
               <span className="block text-[11px] text-purple-200/60 font-medium leading-tight mt-0.5">Manufacturing ERP</span>
             </div>
           )}

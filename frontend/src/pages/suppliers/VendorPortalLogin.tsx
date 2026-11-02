@@ -47,7 +47,7 @@ export default function VendorPortalLogin() {
 
       const { access_token, user } = res.data
       set_auth(access_token, user)
-      toast.success(`Welcome to Nutribay Vendor Portal, ${user.name || user.username}!`)
+      toast.success(`Welcome to Nutribray Vendor Portal, ${user.name || user.username}!`)
       navigate('/vendor-portal', { replace: true })
     } catch (err: any) {
       const msg = err.response?.data?.detail || 'Invalid credentials or portal access is disabled.'
@@ -97,7 +97,7 @@ export default function VendorPortalLogin() {
             <Building2 className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-3xl font-black tracking-tight text-white">
-            Nutribay
+            Nutribray
           </h2>
           <p className="text-xs uppercase tracking-widest text-blue-400 font-bold">
             Supplier & Vendor Self-Service Portal
@@ -277,7 +277,7 @@ export default function VendorPortalLogin() {
             <div className="mt-8 pt-6 border-t border-slate-800/80 text-center space-y-2">
               <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Protected by Nutribay 256-bit ERP Security</span>
+                <span>Protected by Nutribray 256-bit ERP Security</span>
               </div>
               <p className="text-[11px] text-slate-500">
                 Staff member?{' '}

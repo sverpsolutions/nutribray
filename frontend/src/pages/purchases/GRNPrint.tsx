@@ -287,7 +287,7 @@ export default function GRNPrint() {
 
   // Shipping Address (Receiving Outlet or Central HO)
   const outletDetails = grn.outlet_details || {}
-  const shipName = grn.outlet_name || company?.brand_name || 'NUTRIBAY CENTRAL WAREHOUSE'
+  const shipName = grn.outlet_name || company?.brand_name || 'NUTRIBRAY CENTRAL WAREHOUSE'
   const shipAddress = [
     outletDetails.address || company?.ho_address || 'Central Warehouse & Head Office',
     outletDetails.city || company?.ho_city,
@@ -379,7 +379,7 @@ export default function GRNPrint() {
         <tbody>
           <tr>
             <td style={{ verticalAlign: 'top' }}>
-              <div className="company-name">{company?.brand_name || 'NUTRIBAY'}</div>
+              <div className="company-name">{company?.brand_name || 'NUTRIBRAY'}</div>
               <div className="company-address">
                 {[company?.ho_address || 'Central Warehouse', company?.ho_city, `${company?.company_state || ''}-${company?.ho_pincode || ''}`].filter(Boolean).join(', ')}
               </div>

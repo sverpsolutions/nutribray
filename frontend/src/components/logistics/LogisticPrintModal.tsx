@@ -34,8 +34,8 @@ export const LogisticPrintModal: React.FC<LogisticPrintModalProps> = ({
 
   if (!isOpen || !transfer) return null;
 
-  const legalName = settings?.legal_name || 'Nutribay';
-  const brandName = brand_name || 'nutribay';
+  const legalName = settings?.legal_name || 'Nutribray';
+  const brandName = brand_name || 'nutribray';
   const address = settings?.ho_address || settings?.reg_address || 'TR-311, 312, ALTF Mohan Cooperative Industrial Estate, Mathura Road, South Delhi – 110076';
   const phone = settings?.ho_phone || '74003 39365 / 82934 14222';
   const email = settings?.ho_email || '';

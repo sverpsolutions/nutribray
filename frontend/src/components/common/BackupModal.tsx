@@ -9,7 +9,7 @@ interface BackupModalProps {
 }
 
 export default function BackupModal({ isOpen, onClose }: BackupModalProps) {
-  const [backupPath, setBackupPath] = useState('C:\\Backups\\Nutribay');
+  const [backupPath, setBackupPath] = useState('C:\\Backups\\Nutribray');
   const [backingUp, setBackingUp] = useState(false);
 
   const handleBackup = async () => {
@@ -59,7 +59,7 @@ export default function BackupModal({ isOpen, onClose }: BackupModalProps) {
               <Folder className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={18} />
               <input 
                 type="text" 
-                placeholder="C:\Backups\Nutribay" 
+                placeholder="C:\Backups\Nutribray" 
                 className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all text-sm font-bold font-mono" 
                 value={backupPath} 
                 onChange={e => setBackupPath(e.target.value)} 

@@ -16,7 +16,7 @@ interface BrandingState {
 export const useBrandingStore = create<BrandingState>()(
     persist(
         (set) => ({
-            brand_name: 'NUTRIBAY',
+            brand_name: 'NUTRIBRAY',
             logo_path: '/nutribay_logo.svg',
             primary_color: '#8c2785',
             settings: null,
@@ -25,7 +25,7 @@ export const useBrandingStore = create<BrandingState>()(
                     const settings = await getCompanySettings();
                     set({ 
                         settings, 
-                        brand_name: settings.brand_name || 'NUTRIBAY',
+                        brand_name: settings.brand_name || 'NUTRIBRAY',
                         logo_path: settings.logo_path || '/nutribay_logo.svg',
                         primary_color: settings.primary_color || '#8c2785'
                     });
@@ -39,7 +39,7 @@ export const useBrandingStore = create<BrandingState>()(
             updateSettings: (newSettings) => {
                 set({ 
                     settings: newSettings, 
-                    brand_name: newSettings.brand_name || 'NUTRIBAY',
+                    brand_name: newSettings.brand_name || 'NUTRIBRAY',
                     logo_path: newSettings.logo_path || '/nutribay_logo.svg',
                     primary_color: newSettings.primary_color || '#8c2785'
                 });

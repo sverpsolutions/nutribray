@@ -333,7 +333,7 @@ export default function PosBilling() {
       {/* ── top bar ── */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-1.5 rounded-sm text-[#e2e8f0]" style={{ background: NAVY }}>
         <div className="flex items-center gap-2 font-extrabold text-white">
-          <i className="fas fa-shopping-cart text-sky-400" /> NUTRIBAY <span className="font-extrabold">| BILLING</span>
+          <i className="fas fa-shopping-cart text-sky-400" /> NUTRIBRAY <span className="font-extrabold">| BILLING</span>
         </div>
         <div className="flex flex-wrap gap-4 text-xs text-slate-400">
           <span>INVOICE: <strong className="text-white">#UNSAVED (NEW)</strong></span>

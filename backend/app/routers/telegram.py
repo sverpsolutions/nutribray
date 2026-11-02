@@ -196,7 +196,7 @@ async def test_message(aid: int, db: AsyncSession = Depends(get_db)):
     a = (await db.execute(text("SELECT chat_id FROM telegram_accounts WHERE id = :i AND status = 'ACTIVE'"), {"i": aid})).scalar()
     if not a:
         raise HTTPException(404, "Active account not found")
-    await _tg("sendMessage", chat_id=a, text="✅ Test message from Nutribay Business Assistant. Send /menu to see your reports.")
+    await _tg("sendMessage", chat_id=a, text="✅ Test message from Nutribray Business Assistant. Send /menu to see your reports.")
     return {"ok": True}
 
 

@@ -133,8 +133,8 @@ body { font-family: Arial, sans-serif; font-size: 14px; color: #222; background:
   <div class="inv-header">
     ${logo ? `<div style="flex-shrink:0;"><img src="${esc(logo)}" alt="Logo" style="max-height:70px;max-width:150px;object-fit:contain;" onerror="this.remove()"></div>` : ''}
     <div style="flex-grow:1;">
-      <div class="company-name">${esc(s.brand_name || 'nutribay')}</div>
-      <div style="font-weight: bold; font-size: 11px; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribay')}</div>
+      <div class="company-name">${esc(s.brand_name || 'nutribray')}</div>
+      <div style="font-weight: bold; font-size: 11px; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribray')}</div>
       <div class="company-sub">
         ${esc(s.ho_address || 'TR-311, 312, ALTF Mohan Cooperative Industrial Estate, South Delhi – 110076')}<br>
         Ph: ${esc(s.ho_phone || '74003 39365 / 82934 14222')} &nbsp;|&nbsp; Email: ${esc(s.ho_email || '')}${s.gstin ? ` &nbsp;|&nbsp; GSTIN: <strong>${esc(s.gstin)}</strong>` : ''}

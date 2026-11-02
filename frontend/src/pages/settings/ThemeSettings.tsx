@@ -44,7 +44,7 @@ export default function ThemeSettings() {
           <h1 className="text-3xl font-black text-slate-800 dark:text-white mb-2 italic">
             Interface Customization
           </h1>
-          <p className="text-slate-500 font-medium">Personalize your Nutribay workspace and branding.</p>
+          <p className="text-slate-500 font-medium">Personalize your Nutribray workspace and branding.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -62,7 +62,7 @@ async def _save_file(file: UploadFile, folder: str, allowed: dict, max_mb: int) 
 async def _row(db: AsyncSession) -> CompanySetting:
     settings = (await db.execute(select(CompanySetting).order_by(CompanySetting.id))).scalars().first()
     if not settings:
-        settings = CompanySetting(key_name='general', brand_name="NUTRIBAY", legal_name="Nutribay", logo_path="/nutribay_logo.svg")
+        settings = CompanySetting(key_name='general', brand_name="NUTRIBRAY", legal_name="Nutribray", logo_path="/nutribay_logo.svg")
         db.add(settings)
         await db.commit()
         await db.refresh(settings)

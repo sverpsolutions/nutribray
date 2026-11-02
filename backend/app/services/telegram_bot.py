@@ -692,7 +692,7 @@ async def _log(log_id: Optional[int], **kw):
 
 
 def menu_text() -> str:
-    out, g = ["<b>Nutribay Business Assistant</b>\nAsk in plain words (e.g. <i>today's sales</i>, <i>stock of item 10025</i>) or use a command:"], None
+    out, g = ["<b>Nutribray Business Assistant</b>\nAsk in plain words (e.g. <i>today's sales</i>, <i>stock of item 10025</i>) or use a command:"], None
     for k, (title, grp, fin, _, _) in REPORTS.items():
         if grp != g:
             out.append(f"\n<b>{grp}</b>")
@@ -796,7 +796,7 @@ async def process_update(upd: dict, log_id: Optional[int] = None):
             return await send(chat_id, f"✅ Linked to <b>{e(u['name'] or u['username'])}</b>. You see the same outlets and reports as in the software.\n\n" + menu_text(), MENU_KB)
         if not u:
             await _log(log_id, request=txt[:200] if not cq else "[button]", status="unlinked")
-            return await send(chat_id, "This Telegram account is not linked to a NUTRIBAY user. Ask your administrator for a link code, then send <code>/start CODE</code>.")
+            return await send(chat_id, "This Telegram account is not linked to a NUTRIBRAY user. Ask your administrator for a link code, then send <code>/start CODE</code>.")
         await _log(log_id, account_id=u["account_id"], user_id=u["user_id"])
         if cq:
             data = cq.get("data") or ""
@@ -914,7 +914,7 @@ async def build_alert(u: dict, alert: str, cfg: dict) -> Optional[str]:
         by = defaultdict(int)
         for r in rows:
             by[r.get("label") or r.get("request_type")] += 1
-        return "<b>PENDING APPROVALS</b>\n" + "\n".join(f"{e(str(k))}: {v}" for k, v in by.items()) + "\nOpen Approvals in NUTRIBAY to act." + updated()
+        return "<b>PENDING APPROVALS</b>\n" + "\n".join(f"{e(str(k))}: {v}" for k, v in by.items()) + "\nOpen Approvals in NUTRIBRAY to act." + updated()
     if alert == "payment_due":
         d = await get(u, "/accounts/dashboard")
         if not (d["overdue"] or d["due_7d"]):

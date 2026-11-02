@@ -354,7 +354,7 @@ export default function VendorRegistration() {
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-lg shadow-md">M</div>
             <div>
-              <p className="font-black text-slate-800 text-sm leading-tight">Nutribay</p>
+              <p className="font-black text-slate-800 text-sm leading-tight">Nutribray</p>
               <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Vendor Registration Portal</p>
             </div>
           </div>
@@ -856,7 +856,7 @@ export default function VendorRegistration() {
                     <div className="flex-1">
                       <p className="font-black text-blue-900 text-sm">Ready to submit?</p>
                       <p className="text-xs text-blue-700 mt-1 leading-relaxed">
-                        I hereby certify that all information provided is accurate and authorize Nutribay to verify these details.
+                        I hereby certify that all information provided is accurate and authorize Nutribray to verify these details.
                       </p>
                       <button type="button" onClick={handleSubmit} disabled={submitting}
                         className="mt-4 px-10 py-2.5 bg-blue-600 text-white text-xs font-black uppercase tracking-widest rounded-xl shadow-lg hover:bg-blue-700 transition-all disabled:opacity-50 flex items-center gap-2">

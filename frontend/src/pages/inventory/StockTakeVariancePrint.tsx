@@ -72,7 +72,7 @@ export default function StockTakeVariancePrint() {
             <div className="w-16 h-16 rounded-xl border border-slate-200 bg-white p-1 flex items-center justify-center shrink-0 shadow-2xs">
               <img
                 src={company?.logo_path || '/nutribay_logo.svg'}
-                alt="NUTRIBAY Logo"
+                alt="NUTRIBRAY Logo"
                 className="max-h-14 max-w-14 object-contain"
                 onError={(e) => {
                   e.currentTarget.src = '/nutribay_logo.svg';
@@ -82,10 +82,10 @@ export default function StockTakeVariancePrint() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#8c2785] text-white">
-                  {company?.brand_name || 'nutribay'}
+                  {company?.brand_name || 'nutribray'}
                 </span>
                 <span className="text-xs font-bold text-slate-800">
-                  {company?.legal_name || 'Nutribay'}
+                  {company?.legal_name || 'Nutribray'}
                 </span>
               </div>
               <p className="text-[11px] text-slate-600 mt-1 max-w-xl leading-tight">
@@ -276,7 +276,7 @@ export default function StockTakeVariancePrint() {
           <div className="border-t border-slate-400 font-bold text-slate-700 pt-1">
             Authorized HO Signatory
           </div>
-          <div className="text-[10px] text-slate-400">Nutribay Central</div>
+          <div className="text-[10px] text-slate-400">Nutribray Central</div>
         </div>
       </div>
     </div>

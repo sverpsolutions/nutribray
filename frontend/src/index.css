@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  /* 🎨 COLOR TOKENS (NUTRIBAY — Official Brand Plum & Violet) */
+  /* 🎨 COLOR TOKENS (NUTRIBRAY — Official Brand Plum & Violet) */
   --font-sans: 'IBM Plex Sans', 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
   --color-primary:         #8c2785;

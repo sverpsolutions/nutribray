@@ -15,7 +15,7 @@ async def generate_location_template():
     # Add a sample row
     sample = {
         "unit_code": "MBGUR01",
-        "outlet_name": "Nutribay DLF",
+        "outlet_name": "Nutribray DLF",
         "server_name": "192.168.1.100",
         "database_name": "MBGUR01",
         "db_username": "sysuser",

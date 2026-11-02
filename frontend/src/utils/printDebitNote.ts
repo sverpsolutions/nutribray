@@ -95,8 +95,8 @@ export function printDebitNote(r: debit_note, s: Partial<CompanySettings>) {
   <div class="header">
     <div class="company-info">
       ${logo ? `<img src="${esc(logo)}" class="company-logo" alt="Logo" onerror="this.remove()">` : ''}
-      <h2>${esc(s.brand_name || 'nutribay')}</h2>
-      <p style="font-weight: bold; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribay')}</p>
+      <h2>${esc(s.brand_name || 'nutribray')}</h2>
+      <p style="font-weight: bold; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribray')}</p>
       <p>${esc(s.ho_address || 'TR-311, 312, ALTF Mohan Cooperative Industrial Estate, South Delhi – 110076')}</p>
       <p>Ph: ${esc(s.ho_phone || '74003 39365 / 82934 14222')} &nbsp;|&nbsp; Email: ${esc(s.ho_email || '')} &nbsp;|&nbsp; <strong>GSTIN:</strong> ${esc(s.gstin || '07AAACG1234F1Z5')}</p>
     </div>

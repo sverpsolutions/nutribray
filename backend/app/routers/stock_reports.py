@@ -402,7 +402,7 @@ async def email_report(request: Request):
 @router.post("/backup", dependencies=[Depends(require_role("admin"))])
 async def create_backup(request: Request):
     body = await request.json()
-    dest_path = body.get("path", "C:\\Backups\\Nutribay")
+    dest_path = body.get("path", "C:\\Backups\\Nutribray")
     
     if not os.path.exists(dest_path):
         try: os.makedirs(dest_path, exist_ok=True)

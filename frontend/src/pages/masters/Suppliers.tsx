@@ -462,7 +462,7 @@ export default function SuppliersPage({ searchQuery = '', onCountUpdate }: { sea
                 navigator.clipboard.writeText(link)
                 toast.success("Link copied to clipboard!")
                 // Also provide WhatsApp option
-                const msg = encodeURIComponent(`Hi, please fill in your details for onboarding at Nutribay using this link: ${link}`)
+                const msg = encodeURIComponent(`Hi, please fill in your details for onboarding at Nutribray using this link: ${link}`)
                 window.open(`https://wa.me/?text=${msg}`, '_blank')
                 setShowOnboarding(false)
             }} 

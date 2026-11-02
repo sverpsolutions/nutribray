@@ -55,8 +55,8 @@ function page(t: transfer_print, s: Partial<CompanySettings>, logo: string) {
     <div style="display: flex; gap: 12px; align-items: center;">
       ${logo ? `<img src="${esc(logo)}" class="logo" alt="" onerror="this.remove()">` : ''}
       <div>
-        <h2>${esc(s.brand_name || 'nutribay')}</h2>
-        <p style="font-weight: bold; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribay')}</p>
+        <h2>${esc(s.brand_name || 'nutribray')}</h2>
+        <p style="font-weight: bold; margin-bottom: 2px;">${esc(s.legal_name || 'Nutribray')}</p>
         <p>${esc(s.ho_address || 'TR-311, 312, ALTF Mohan Cooperative Industrial Estate, South Delhi – 110076')}</p>
         <p>Ph: ${esc(s.ho_phone || '74003 39365 / 82934 14222')} &nbsp;|&nbsp; Email: ${esc(s.ho_email || '')}${s.gstin ? ` &nbsp;|&nbsp; <strong>GSTIN:</strong> ${esc(s.gstin)}` : ''}</p>
       </div>

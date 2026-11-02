@@ -513,7 +513,7 @@ async def payment_matrix_report(
     td = _d(to_date,   date.today())
     params: dict = {"fd": fd, "td": td, "oid": outlet_id}
     ow = " AND (CAST(:oid AS INT) IS NULL OR b.outlet_id = :oid)" + access.outlet_filter("b.outlet_id", params)
-    # synced outlet POS bills + bills made in nutribay itself (their payments)
+    # synced outlet POS bills + bills made in nutribray itself (their payments)
     src = f"""(SELECT outlet_id, bill_date, paymode, pay_amount FROM bill_wise_sales_summary
                UNION ALL
                SELECT i.outlet_id, py.payment_date, py.payment_mode, py.amount

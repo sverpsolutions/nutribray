@@ -3,7 +3,7 @@ import { enterFull } from '../../utils/fullscreen'
 import { useAuth } from '../../hooks/useAuth'
 
 /* ------------------------------------------------------------------ */
-/*  Premium Login Page — Nutribay                                */
+/*  Premium Login Page — Nutribray                                */
 /* ------------------------------------------------------------------ */
 
 export default function LoginPage() {
@@ -49,12 +49,12 @@ export default function LoginPage() {
           <div className="login-logo" style={{ background: 'transparent', boxShadow: 'none' }}>
             <img 
               src="/nutribay_logo.svg" 
-              alt="NUTRIBAY Logo" 
+              alt="NUTRIBRAY Logo" 
               style={{ maxHeight: '68px', width: 'auto', margin: '0 auto', filter: 'drop-shadow(0 4px 12px rgba(140, 39, 133, 0.4))' }} 
             />
           </div>
-          <h1 className="login-title" style={{ marginTop: '0.75rem', letterSpacing: '-0.02em' }}>NUTRIBAY</h1>
-          <p className="login-subtitle">Nutribay • Manufacturing ERP</p>
+          <h1 className="login-title" style={{ marginTop: '0.75rem', letterSpacing: '-0.02em' }}>NUTRIBRAY</h1>
+          <p className="login-subtitle">Nutribray • Manufacturing ERP</p>
         </div>
 
         {/* form */}
@@ -168,7 +168,7 @@ export default function LoginPage() {
 
         {/* footer */}
         <p className="login-footer">
-          Nutribay Manufacturing ERP Manufacturing ERP &copy; {new Date().getFullYear()}
+          Nutribray Manufacturing ERP &copy; {new Date().getFullYear()}
         </p>
       </div>
 

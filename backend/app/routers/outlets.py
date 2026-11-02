@@ -33,8 +33,8 @@ async def get_company_hierarchy(
     """Returns the complete Company -> Region -> Zone -> Store hierarchy tree."""
     # 1. Company Details
     company_row = (await db.execute(select(CompanySetting).order_by(CompanySetting.id))).scalars().first()
-    comp_name = getattr(company_row, "legal_name", None) or "Nutribay"
-    brand_name = getattr(company_row, "brand_name", None) or "nutribay"
+    comp_name = getattr(company_row, "legal_name", None) or "Nutribray"
+    brand_name = getattr(company_row, "brand_name", None) or "nutribray"
     ho_addr = getattr(company_row, "ho_address", None) or "TR-311, 312, ALTF Mohan Cooperative Industrial Estate, South Delhi – 110076"
     ho_ph = getattr(company_row, "ho_phone", None) or "74003 39365"
     ho_em = getattr(company_row, "ho_email", None) or ""

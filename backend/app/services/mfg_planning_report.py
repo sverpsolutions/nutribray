@@ -30,7 +30,7 @@ def n(v) -> float:
 
 async def company(db) -> str:
     r = (await db.execute(text("SELECT mfg_company_name, legal_name, brand_name FROM company_settings ORDER BY id LIMIT 1"))).mappings().first() or {}
-    return r.get("mfg_company_name") or r.get("legal_name") or r.get("brand_name") or "Nutribay"
+    return r.get("mfg_company_name") or r.get("legal_name") or r.get("brand_name") or "Nutribray"
 
 
 def _line(l: dict) -> list:
